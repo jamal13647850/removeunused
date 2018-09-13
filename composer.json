@@ -1,0 +1,13 @@
+{
+    "name": "pgsavis/removeunused",
+    "description": "A Plugin For Remove Unused CSS JS Files in WordPress",
+    "authors": [
+        {
+            "name": "Sayyed Jamal ghasemi",
+            "email": "jamal13647850@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.5"
+    }
+}
