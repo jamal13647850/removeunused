@@ -9,6 +9,9 @@ Author URI: https://www.linkedin.com/in/jamal1364/
 License: 
 
 */
+
+use removeunused\hooks;
+
 class removeunused{
 
     const domain ='removeunused' ;
@@ -50,16 +53,13 @@ class removeunused{
         define( 'removeunused_img_url', trailingslashit( removeunused_url . 'img' ) );
         define( 'removeunusedTemplateUrl', trailingslashit( removeunused_url . 'template' ) );
         define( 'removeunusedTemplateDir', trailingslashit( removeunused_DIR . 'template' ) );
-        define( 'vendor_DIR', trailingslashit( removeunused_DIR . 'vendor' ) );
-        require_once vendor_DIR.'autoload.php';
+        define( 'removeunused_vendor_DIR', trailingslashit( removeunused_DIR . 'vendor' ) );
+
+        require_once removeunused_vendor_DIR.'autoload.php';
+
+        $hooks=new hooks();
 
 
-
-
-
-        add_action('wp_enqueue_scripts', array($this,'register_scripts_and_styles'),1);
-        add_action( 'admin_enqueue_scripts', array($this,'register_admin_scripts_and_styles'), 10000 );
-        add_action( 'login_enqueue_scripts', [$this,'removeunusedLoginStylesheet'] );
 
 
 
@@ -70,25 +70,7 @@ class removeunused{
     }
 
 
-    function register_scripts_and_styles() {
-        if (!is_admin()) {
 
-        }
-    }
-
-
-    function register_admin_scripts_and_styles() {
-        if (is_admin()) {
-
-        }
-    }
-
-    public function activation(){
-
-    }
-    public function deactivation(){
-
-    }
 }
 
 $removeunused=new removeunused();
